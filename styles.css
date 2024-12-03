@@ -1,0 +1,125 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #a8c0ff, #3f2b96);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.wrapper {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+
+.container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+textarea, input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    resize: none;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+textarea:focus, input:focus {
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+button {
+    padding: 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+    width: 48%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.result-container {
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.result-container textarea {
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+.result-container textarea:focus {
+    border-color: #007bff;
+}
+
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .result-container {
+        margin-top: 10px;
+    }
+
+    textarea, input {
+        padding: 10px;
+    }
+}

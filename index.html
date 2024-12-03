@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шифратор-Дешифратор Gcrypt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Шифратор-Дешифратор Gcrypt</h1>
+        <div class="container">
+            <textarea id="inputText" placeholder="Введите текст..."></textarea>
+            <div class="button-container">
+                <button type="button" onclick="processText('encrypt')">Зашифровать</button>
+                <button type="button" onclick="processText('decrypt')">Дешифровать</button>
+            </div>
+            <div class="result-container">
+                <h2>Результат:</h2>
+                <textarea id="outputText" readonly></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateEncryptionKey() {
+            const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+            let key = '';
+            for (let i = 0; i < 6; i++) {
+                key += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return key;
+        }
+
+        function customEncrypt(text) {
+            let result = '';
+            for (let char of text) {
+                const key = generateEncryptionKey();
+                result += key + char; 
+            }
+            return result;
+        }
+
+        function customDecrypt(encryptedText) {
+            let result = '';
+            for (let i = 0; i < encryptedText.length; i += 7) { 
+                result += encryptedText.charAt(i + 6); 
+            }
+            return result;
+        }
+
+        function processText(action) {
+            const inputText = document.getElementById('inputText').value;
+            let outputText;
+            if (action === 'encrypt') {
+                outputText = customEncrypt(inputText);
+            } else {
+                outputText = customDecrypt(inputText);
+            }
+            document.getElementById('outputText').value = outputText;
+        }
+    </script>
+</body>
+</html>
